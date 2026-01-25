@@ -9,7 +9,13 @@ g.strellarSettings=g.strellarSettings or{
     espTracers=false,
     espNames=false,
     espDistance=false,
-    espHealth=false
+    espHealth=false,
+    espHealthBar=true,
+    espStyle="Corner",
+    espRainbow=false,
+    espPulse=false,
+    espFill=false,
+    espOutline=true
 }
 
 return g.strellarSettings
