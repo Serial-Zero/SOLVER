@@ -6,7 +6,7 @@ end
 if settings.isTransparent == nil then
     settings.isTransparent = true
 end
-if settings.theme == nil then
+if type(settings.theme) ~= "string" or settings.theme == "" or settings.theme == "default" then
     settings.theme = "Dark"
 end
 

@@ -1,9 +1,9 @@
 local g=(getgenv and getgenv())or _G
 g.strellarSettings=g.strellarSettings or{
     uiScale=1,
-    isTransparent=false,
+    isTransparent=true,
     isKeySystemEnabled=true,
-    theme="default"
+    theme="Dark"
 }
 
 return g.strellarSettings
