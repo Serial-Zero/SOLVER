@@ -12401,6 +12401,15 @@ local a a={cache={}, load=function(b)if not a.cache[b]then a.cache[b]={c=a[b]()}
     
     local au=gethui and gethui()or(aj or game.Players.LocalPlayer:WaitForChild"PlayerGui")
     
+    local oldMain=au:FindFirstChild("WindUI")
+    if oldMain then oldMain:Destroy()end
+    local oldNoti=au:FindFirstChild("WindUI/Notifications")
+    if oldNoti then oldNoti:Destroy()end
+    local oldDrop=au:FindFirstChild("WindUI/Dropdowns")
+    if oldDrop then oldDrop:Destroy()end
+    local oldTip=au:FindFirstChild("WindUI/Tooltips")
+    if oldTip then oldTip:Destroy()end
+    
     local av=ap("UIScale",{
     Scale=aa.Scale,
     })
