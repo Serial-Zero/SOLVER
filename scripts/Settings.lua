@@ -3,7 +3,13 @@ g.strellarSettings=g.strellarSettings or{
     uiScale=1,
     isTransparent=true,
     isKeySystemEnabled=true,
-    theme="Dark"
+    theme="Dark",
+    espEnabled=false,
+    espBoxes=true,
+    espTracers=false,
+    espNames=true,
+    espDistance=true,
+    espHealth=true
 }
 
 return g.strellarSettings
