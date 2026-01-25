@@ -11,10 +11,10 @@ if type(settings.theme) ~= "string" or settings.theme == "" or settings.theme ==
 end
 
 local Window = WindUI:CreateWindow({
-    Title = "My Super Hub",
+    Title = "SOLVER",
     Icon = "door-open", -- lucide icon
-    Author = "by .ftgs and .ftgs",
-    Folder = "MySuperHub",
+    Author = "by DeadSignalFound",
+    Folder = "SOLVER",
     
 
     Size = UDim2.fromOffset(580, 460),
@@ -44,11 +44,35 @@ local settingsTab = Window:Tab({
     Icon = "settings"
 })
 
-settingsTab:Button({
-    Title = "Test Button",
-    Desc = "Test",
-    Locked = false,
-    Callback = function()
-        print("test")
+local themeList = {}
+local themes = WindUI:GetThemes()
+for k in next, themes do
+    themeList[#themeList + 1] = k
+end
+table.sort(themeList)
+
+if not themes[settings.theme] then
+    settings.theme = "Dark"
+end
+
+local themeDropdown = settingsTab:Dropdown({
+    Title = "Theme",
+    Desc = "Select UI theme",
+    Values = themeList,
+    Value = settings.theme,
+    Multi = false,
+    AllowNone = false,
+    Callback = function(opt)
+        local sel = opt
+        if type(sel) == "table" then
+            sel = sel[1]
+        end
+        if type(sel) ~= "string" then
+            return
+        end
+        settings.theme = sel
+        WindUI:SetTheme(sel)
     end
 })
+
+themeDropdown:Select(settings.theme)
